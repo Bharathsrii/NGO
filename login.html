@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Donation Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./login.css">
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500;700&family=Oswald:wght@600&display=swap"
+    rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+ 
+  </style>
+</head>
+<body>
+
+<!-- Login Page -->
+<div class="container login-container">
+  <h2 class="text-center mb-4">Donation</h2>
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" required placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" required placeholder="Enter your password">
+    </div>
+    <button type="button" class="btn  btn-block" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sigin</button>
+  </form>
+</div>
+
+<!-- Donation Page -->
+<div class="container donation-container d-none">
+  <h2 class="text-center mb-4">Make a Donation</h2>
+  <form id="donationForm" class="donation-form">
+    <div class="form-group">
+      <label for="donationType">Select Donation Type:</label>
+      <select class="form-control" id="donationType">
+        <option value="money">Money</option>
+        <option value="foods">Food</option>
+        <option value="medicines">Medicines</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="donationAmount">Donation Amount:</label>
+      <input type="number" class="form-control" id="donationAmount" required>
+    </div>
+    <div class="form-group">
+      <label for="donationDetails">Donation Details:</label>
+      <textarea class="form-control" id="donationDetails" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-success btn-block" onclick="makeDonation()">Make Donation</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+  function login() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Add your authentication logic here
+    // For a simple example, let's just show an alert with the entered credentials
+    alert("Welcome, " + username + "!");
+    
+    // Show the donation page after successful login
+    document.querySelector('.login-container').classList.add('d-none');
+    document.querySelector('.donation-container').classList.remove('d-none');
+  }
+
+  function makeDonation() {
+    var donationType = document.getElementById("donationType").value;
+    var donationAmount = document.getElementById("donationAmount").value;
+    var donationDetails = document.getElementById("donationDetails").value;
+
+    // Add your donation handling logic here
+    // For a simple example, let's just show an alert with the entered donation details
+    alert("Thank you for your " + donationType + " donation of Rs." + donationAmount + "\nDetails: " + donationDetails);
+  }
+</script>
+
+</body>
+</html>
